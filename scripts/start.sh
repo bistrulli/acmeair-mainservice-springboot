@@ -15,19 +15,53 @@ authPid=$!
 
 sleep 10
 
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost &
-custPid=$!
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9086 &
+
+sleep 10
+
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9087 &
+
+sleep 10
+
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9088 &
+
+sleep 10
+
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9089 &
 
 sleep 10
 
 java -jar ~/git/acmeair-bookingservice-springboot/target/acmeair-bookingservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
---customer.service=acmeair-nginx/customer --flight.service=acmeair-nginx/flight &
-bookPid=$!
+--customer.service=acmeair-nginx/customer --flight.service=acmeair-nginx/flight --server.port=9082 &
 
 sleep 10
 
-java -jar ~/git/acmeair-flightservice-springboot/target/acmeair-flightservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost &
-flightPid=$!
+java -jar ~/git/acmeair-bookingservice-springboot/target/acmeair-bookingservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--customer.service=acmeair-nginx/customer --flight.service=acmeair-nginx/flight --server.port=9083 &
+
+sleep 10
+
+java -jar ~/git/acmeair-bookingservice-springboot/target/acmeair-bookingservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--customer.service=acmeair-nginx/customer --flight.service=acmeair-nginx/flight --server.port=9084 &
+
+sleep 10
+
+java -jar ~/git/acmeair-bookingservice-springboot/target/acmeair-bookingservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--customer.service=acmeair-nginx/customer --flight.service=acmeair-nginx/flight --server.port=9085 &
+
+sleep 10
+
+java -jar ~/git/acmeair-flightservice-springboot/target/acmeair-flightservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9090 &
+
+sleep 10
+
+java -jar ~/git/acmeair-flightservice-springboot/target/acmeair-flightservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
+--server.port=9091 &
 
 sleep 10
 
