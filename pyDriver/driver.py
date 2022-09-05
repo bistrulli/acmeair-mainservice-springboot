@@ -34,6 +34,7 @@ if __name__ == '__main__':
     
     #login
     # data to be sent to api
+    #estraggo un progilo random da visualizzare e aggiornare in base a quelli disponibili
     data = {"login":"uid0@email.com",
             "password":"password"}
     

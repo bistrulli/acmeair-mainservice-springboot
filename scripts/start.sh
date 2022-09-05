@@ -10,8 +10,7 @@ sudo pkill -9 -f haproxy
 #sleep 10
 
 #/login
-java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
---customer.service=acmeair-nginx/customer &
+java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar &
 authPid=$!
 
 sleep 10
