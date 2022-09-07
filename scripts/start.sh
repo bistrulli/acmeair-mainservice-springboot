@@ -4,29 +4,29 @@ sudo pkill -9 -f acmeair
 sudo pkill -9 -f haproxy
 #sudo pkill -9 -f nginx
 
-#java -jar ~/git/acmeair-mainservice-springboot/target/acmeair-mainservice-springboot-2.1.1-SNAPSHOT.jar &
-#mainPid=$!
+java -jar ~/git/acmeair-mainservice-springboot/target/acmeair-mainservice-springboot-2.1.1-SNAPSHOT.jar &
+mainPid=$!
 
-#sleep 10
+sleep 10
 
 #/login
-java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar --server.port=45366 &
+java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar --server.port=9081 &
 authPid=$!
 
 sleep 10
 
 #/validateid
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=40237 &
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=9086 &
 
 sleep 10
 
 #GET /byid/{custid}
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=21720 &
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=9087 &
 
 sleep 10
 
 # POST /byid/{custid}
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=30022 &
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=9088 &
 
 sleep 10
 
