@@ -40,12 +40,14 @@ if __name__ == '__main__':
     
     st=time.time()
     r = s.post(url="http://localhost:80/auth/login",data=data)
-    print("login time %f"%(time.time()-st))
+    #print("login time %f"%(time.time()-st))
+    print(r.text)
     
     #view profile
     st=time.time()
     r=s.get(url="http://localhost/customer/byid/%s"%(data["login"]),data={})
-    print("view profile time %f"%(time.time()-st))
+    print('view profile resp',r.text)
+    #print("view profile time %f"%(time.time()-st))
     userData=json.loads(r.text);
     
     #update profile
@@ -53,22 +55,22 @@ if __name__ == '__main__':
     userData["phoneNumber"]=number
     userData["password"]=data["password"];
     st=time.time()
-    r=s.post(url="http://localhost/customer/byid/%s"%(data["login"]),headers={"Content-Type": "application/json; charset=utf-8"},
+    r=s.post(url="http://localhost/customer/byid/%s"%(data["login"]),headers={"Content-Type": "application/json;"},
              json=userData)
-    print("update profile time %f"%(time.time()-st))
+    print("update profile resp",r.text)
+    
+    # print("update profile time %f"%(time.time()-st))
     userData=json.loads(r.text);
     
     #view profile
     st=time.time()
     r=s.get(url="http://localhost/customer/byid/%s"%(data["login"]),data={})
-    print("view profile time %f"%(time.time()-st))
+    #print("view profile time %f"%(time.time()-st))
     userData=json.loads(r.text);
+    print("view2 progile",userData)
     
     if(not userData["phoneNumber"]==number):
         raise ValueError("number not saved successfully")
-    
-    #studio meglio il comportamento inteno e preparo l'applicazione per essere eseguita nel mio framework. Posso sostituire il mio proxy 
-    #con ha proxy?
     
     
     

@@ -3,26 +3,38 @@
 cd ../../
 
 cd acmeair-mainservice-springboot/
-mvn clean package
+git add -A
+git commit -m $1
+git push
 cd ../
 
 
 cd acmeair-authservice-springboot/
-mvn clean package
+git add . -A
+git commit -m $1
+git push
 cd ../
 
 cd acmeair-customerservice-springboot/
-mvn clean package
+git add . -A
+git commit -m $1
+git push
 cd ../
 
 cd acmeair-flightservice-springboot/
-mvn clean package
+git add . -A
+git commit -m $1
+git push
 cd ../
 
 cd acmeair-bookingservice-springboot/
-mvn clean package
+git add . -A
+git commit -m $1
+git push
 cd ../
 
 cd acmeair-mainservice-springboot/
-mvn clean package
+git add . -A
+git commit -m $1
+git push
 cd ../

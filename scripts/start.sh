@@ -10,26 +10,23 @@ sudo pkill -9 -f haproxy
 #sleep 10
 
 #/login
-java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar &
+java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar --server.port=45366 &
 authPid=$!
 
 sleep 10
 
 #/validateid
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
---server.port=9086 &
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=40237 &
 
 sleep 10
 
-# GET /byid/{custid}
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
---server.port=9087 &
+#GET /byid/{custid}
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=21720 &
 
 sleep 10
 
 # POST /byid/{custid}
-java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --LICENSE=accept --MONGO_HOST=localhost \
---server.port=9088 &
+java -jar ~/git/acmeair-customerservice-springboot/target/acmeair-customerservice-springboot-2.1.1-SNAPSHOT.jar --server.port=30022 &
 
 sleep 10
 
