@@ -24,11 +24,13 @@ if __name__ == '__main__':
     
     #come primo workload eseguo login/view_profile/update_profile
     #come workload finale eseguo un untete che con una certa probabilita 
+        #login
         #modifica il suo profilo
-        #cerca un volo
-        #con un altra probailita 
-            #fa il booking di quel volo (fatto il booking abbandona il sito. Devo cancellare il booking? forse si per coerenza)
-            #esegue una nuova ricerca
+        #cerca un volo esistente 
+            #con prob p1
+                #fa il booking di quel volo (Devo cancellare il booking? forse si per coerenza)
+            #con prob 1-p1
+            #torna alla ricerca
     
     
     
