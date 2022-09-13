@@ -78,8 +78,8 @@ if __name__ == '__main__':
     #query fligth
     queryData={"fromAirport": "FCO",
                 "toAirport": "LHR",
-                "fromDate": "Wed Sep 14 00:00:00 CEST 2022",
-                "returnDate": "Wed Sep 14 00:00:00 CEST 2022",
+                "fromDate": "Tue Sep 13 2022 00:00:00 GMT+0200 (Ora legale dell’Europa centrale)",
+                "returnDate": "Tue Sep 13 2022 00:00:00 GMT+0200 (Ora legale dell’Europa centrale)",
                 "oneWay": False}
     r = s.post(url="http://localhost/flight/queryflights",data=queryData)
     print(r.text)
