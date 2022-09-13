@@ -81,12 +81,12 @@ if __name__ == '__main__':
 
     flightData = json.loads(r.text);
     print(flightData)
-    
-    toFlight=flightData["tripFlights"][0]["flightsOptions"][0]
-    retFlight=flightData["tripFlights"][1]["flightsOptions"][0]
+
                           
     # book flight
-    bookData = {
+    toFlight=flightData["tripFlights"][0]["flightsOptions"][0]
+    retFlight=flightData["tripFlights"][1]["flightsOptions"][0]
+    bookingData = {
               "userid": userData["_id"],
               "toFlightId": toFlight["_id"],
               "toFlightSegId": toFlight["flightSegmentId"],
@@ -95,7 +95,9 @@ if __name__ == '__main__':
               "oneWayFlight": False
         }
     
-    print(bookData)
+    r = s.post(url="http://localhost//booking/bookflights", data=bookingData)
+    print(r.text)
+    
     
     # cancel booking
     
