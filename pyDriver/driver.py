@@ -101,10 +101,10 @@ if __name__ == '__main__':
     # cancel booking
     bookToCancel = {"userid": userData["_id"],
                     "number": bookingRes["departBookingId"]}
-    r = s.post(url="http://localhost//booking/cancelbooking", data=bookToCancel)
+    r = s.post(url="http://localhost/booking/cancelbooking", data=bookToCancel)
     print(r.text)
     bookToCancel["number"] = bookingRes["returnBookingId"]
-    r = s.post(url="http://localhost//booking/cancelbooking", data=bookToCancel)
+    r = s.post(url="http://localhost/booking/cancelbooking", data=bookToCancel)
     print(r.text)
     
     s.close()
