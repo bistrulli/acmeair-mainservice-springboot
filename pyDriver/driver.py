@@ -7,6 +7,7 @@ Created on 19 ago 2022
 import json
 import numpy as np
 import time
+import datetime
 
 
 from Users.clientThread import clientThread
@@ -77,8 +78,8 @@ if __name__ == '__main__':
     #query fligth
     queryData={"fromAirport": "FCO",
                 "toAirport": "LHR",
-                "fromDate": "",
-                "returnDate": "",
+                "fromDate": datetime.datetime.isoformat(),
+                "returnDate": datetime.datetime.isoformat(),
                 "oneWay": False}
     r = s.post(url="http://localhost/flight/queryflights",data=queryData)
     print(r)
