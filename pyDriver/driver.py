@@ -75,13 +75,12 @@ if __name__ == '__main__':
         raise ValueError("number not saved successfully")
     
     #query fligth
-    queryData={
-                "fromAirport": "FCO",
+    queryData={"fromAirport": "FCO",
                 "toAirport": "LHR",
                 "fromDate": "",
                 "returnDate": "",
                 "oneWay": False}
-    r = s.post(url="http://localhost:80/auth/login",data=queryData)
+    r = s.post(url="http://localhost/flight/queryflights",data=queryData)
     print(r)
     s.close()
     
