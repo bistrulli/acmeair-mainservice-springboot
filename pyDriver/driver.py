@@ -95,8 +95,8 @@ if __name__ == '__main__':
     # book flight
     bookData = {
               userid: userData["_id"],
-              toFlightId: flightData['flightsOptions'][0]["_id"]],
-              toFlightSegId: flightData['flightsOptions'][0]["flightSegmentId"]],
+              toFlightId: flightData['flightsOptions'][0]["_id"],
+              toFlightSegId: flightData['flightsOptions'][0]["flightSegmentId"],
               retFlightId: "66560514 - b3d7 - 4f61 - 9386 - fea62c6c5613",
               retFlightSegId: "AA188",
               oneWayFlight: False
