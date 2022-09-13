@@ -96,10 +96,11 @@ if __name__ == '__main__':
         }
     
     r = s.post(url="http://localhost/booking/bookflights", data=bookingData)
+    print("booking")
     print(r.text)
     
-    
     # cancel booking
+    
     
     s.close()
         
