@@ -74,6 +74,17 @@ if __name__ == '__main__':
     if(not userData["phoneNumber"]==number):
         raise ValueError("number not saved successfully")
     
+    #query fligth
+    queryData={
+                "fromAirport": "FCO",
+                "toAirport": "LHR",
+                "fromDate": "",
+                "returnDate": "",
+                "oneWay": False}
+    r = s.post(url="http://localhost:80/auth/login",data=queryData)
+    print(r)
+    s.close()
+    
     
     
     
