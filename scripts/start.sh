@@ -4,6 +4,8 @@ sudo pkill -9 -f acmeair
 sudo pkill -9 -f haproxy
 #sudo pkill -9 -f nginx
 
+
+
 java -jar ~/git/acmeair-mainservice-springboot/target/acmeair-mainservice-springboot-2.1.1-SNAPSHOT.jar &
 mainPid=$!
 
@@ -72,5 +74,5 @@ java -jar ~/git/acmeair-flightservice-springboot/target/acmeair-flightservice-sp
 sleep 10
 
 #sudo nginx -c  ~/git/acmeair-mainservice-springboot/nginx/conf/nginx.conf
-haproxy -f ~/git/acmeair-mainservice-springboot/haproxy/haproxy.cfg &
+sudo haproxy -f ~/git/acmeair-mainservice-springboot/haproxy/haproxy.cfg &
 echo "startup complete"
