@@ -82,23 +82,16 @@ if __name__ == '__main__':
     flightData = json.loads(r.text);
     print(flightData)
     
-    # {'tripFlights': [{'numPages': 1, 
-    #                   'flightsOptions': [{'_id': 'fe3b5205-3119-4ed6-85ef-d96ec13f21d1', 
-    #                   'firstClassBaseCost': 500, 'economyClassBaseCost': 200, 
-    #                   'numFirstClassSeats': 10, 'numEconomyClassSeats': 200, 
-    #                   'airplaneTypeId': 'B747', 'flightSegmentId': 'AA319', 
-    #                   'scheduledDepartureTime': 'Tue Sep 13 00:00:00 CEST 2022', 
-    #                   'scheduledArrivalTime': 'Tue Sep 13 01:29:00 CEST 2022', 
-    #                   'flightSegment': {'_id': 'AA319', 'originPort': 'FCO', 'destPort': 'LHR', 'miles': 892}}], 
-    #                   'currentPage': 0, 'hasMoreOptions': False, 'pageSize': 10}
-                      
+    toFlight=flightData["tripFlights"][0]["flightsOptions"][0]
+    retFlight=flightData["tripFlights"][1]["flightsOptions"][0]
+                          
     # book flight
     bookData = {
               "userid": userData["_id"],
-              "toFlightId": flightData['flightsOptions'][0]["_id"],
-              "toFlightSegId": flightData['flightsOptions'][0]["flightSegmentId"],
-              "retFlightId": "66560514 - b3d7 - 4f61 - 9386 - fea62c6c5613",
-              "retFlightSegId": "AA188",
+              "toFlightId": toFlight["_id"],
+              "toFlightSegId": toFlight["flightSegmentId"],
+              "retFlightId": retFlight["_id"],
+              "retFlightSegId": retFlight["flightSegmentId"],
               "oneWayFlight": False
         }
     
