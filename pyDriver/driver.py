@@ -82,7 +82,7 @@ if __name__ == '__main__':
                 "returnDate": "Tue Sep 13 2022 00:00:00 GMT+0200 (Ora legale dell’Europa centrale)",
                 "oneWay": False}
     r = s.post(url="http://localhost/flight/queryflights",data=queryData)
-    print(r)
+    print(r.text)
     s.close()
     
     
