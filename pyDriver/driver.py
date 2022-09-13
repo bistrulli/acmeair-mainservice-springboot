@@ -95,7 +95,7 @@ if __name__ == '__main__':
               "oneWayFlight": False
         }
     
-    r = s.post(url="http://localhost//booking/bookflights", data=bookingData)
+    r = s.post(url="http://localhost/booking/bookflights", data=bookingData)
     print(r.text)
     
     
