@@ -1,4 +1,5 @@
 #!/bin/bash 
+set -x
 
 sudo pkill -9 -f acmeair
 sudo pkill -9 -f nginx
