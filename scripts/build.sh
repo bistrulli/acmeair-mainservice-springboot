@@ -32,8 +32,3 @@ cd acmeair-bookingservice-springboot/
 git pull
 mvn clean package
 cd ../
-
-cd acmeair-mainservice-springboot/
-git pull
-mvn clean package
-cd ../
