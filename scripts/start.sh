@@ -11,7 +11,7 @@ sleep 10
 
 #/login
 java -jar ~/git/acmeair-authservice-springboot/target/acmeair-authservice-springboot-2.1.1-SNAPSHOT.jar --server.port=9081 \
---LICENSE=accept --customer.service=185.154.155.43/customer &
+--LICENSE=accept --customer.service=acmeair-nginx/customer &
 sleep 10
 
 #/validateid
