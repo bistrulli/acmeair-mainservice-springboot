@@ -1,0 +1,39 @@
+apiVersion: apps/v1 # API version, v1 is stable for deployments
+kind: Deployment    # To allow creation of pods
+metadata:
+  name: acmeair-main-deployment
+spec:
+  replicas: 1 # Number of pods to run
+  selector:
+    matchLabels:
+      app: acmeair
+      tier: main
+  template:
+    metadata:
+      annotations:
+        vpa.k8s.io/in-place-update-policy: "true"
+      labels:
+        app: acmeair
+        tier: main
+    spec:
+      containers:
+        - name: acmeair-main-container
+          image: rpizziol/acmeair-mainservice-springboot:0.12
+          imagePullPolicy: Always
+          resizePolicy:
+            - resourceName: cpu
+              restartPolicy: NotRequired
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1000m" # Recommended to use the m notation
+            limits:
+              memory: "1Gi"
+              cpu: "1000m" # 16000m
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          ports:
+            - containerPort: 80
