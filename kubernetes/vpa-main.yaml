@@ -1,0 +1,20 @@
+apiVersion: "autoscaling.k8s.io/v1"
+kind: VerticalPodAutoscaler
+metadata:
+  name: vpa-main
+spec:
+  targetRef:
+    apiVersion: apps/v1 #"v1"
+    kind: Deployment
+    name: acmeair-main-deployment
+  updatePolicy:
+    updateMode: "Off"
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"  # Target all containers in the deployment
+        minAllowed:
+          cpu: 50m  # Minimum allowed CPU request (e.g., 100 millicores)
+        maxAllowed:
+          cpu: 16000m  # Maximum allowed CPU request (e.g., 500 millicores)
+        mode: Auto  # VPA will automatically update CPU requests
+        controlledResources: [ "cpu", "memory" ]
